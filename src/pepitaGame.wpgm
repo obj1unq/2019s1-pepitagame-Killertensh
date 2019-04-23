@@ -36,17 +36,18 @@ program PepitaGame {
 		                   game.removeVisual(alpiste)
 	}
 
-	keyboard.up().onPressDo { pepita.move(pepita.position().up(1)) }
-	keyboard.down().onPressDo { pepita.move(pepita.position().down(1)) }
-	keyboard.left().onPressDo { pepita.move(pepita.position().left(1)) }
-	keyboard.right().onPressDo { pepita.move(pepita.position().right(1)) }
+	keyboard.up().onPressDo { roque.move(roque.position().up(1)) }
+	keyboard.down().onPressDo { roque.move(roque.position().down(1)) }
+	keyboard.left().onPressDo { roque.move(roque.position().left(1)) }
+	keyboard.right().onPressDo { roque.move(roque.position().right(1)) }
 		
 		
 // Colisiones
   //  game.whenCollideDo(pepita, {ave => console.printIn(pepita , "Hola") })	
-      game.whenCollideDo(pepona , {golondrina => golondrina.nuevaAmiga(pepona) })	
-      game.whenCollideDo(pipa , {golondrina => golondrina.nuevaAmiga(pipa)})
-		
+  //  game.whenCollideDo(pepona , {golondrina => golondrina.nuevaAmiga(pepona) })	
+  //  game.whenCollideDo(pipa , {golondrina => golondrina.nuevaAmiga(pipa)})
+	  game.whenCollideDo(alpiste , {roque => roque.guardarComida(alpiste)})	 
+	  game.whenCollideDo(manzana , {roque => roque.guardarComida(manzana)})
 //	START
 	game.start()
 }
