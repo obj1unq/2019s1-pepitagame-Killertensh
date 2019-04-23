@@ -17,6 +17,9 @@ program PepitaGame {
 	game.addVisual(buenosAires)
 	game.addVisual(villaGesell)
 	game.addVisual(pepita)
+	game.addVisual(pepona)
+	game.addVisual(pipa)
+	game.addVisual(roque)
 
 //	TECLADO
 	keyboard.h().onPressDo { game.say(pepita, "Modo Diablo!") }
@@ -24,10 +27,12 @@ program PepitaGame {
 	keyboard.v().onPressDo { pepita.volaHacia(villaGesell) }
 	keyboard.b().onPressDo { pepita.volaHacia(buenosAires) }
 	keyboard.m().onPressDo { pepita.move(game.at(5,1))
+		                     pepita.come(manzana)
 		                     game.removeVisual(manzana)
 	}
 	
 	keyboard.a().onPressDo{pepita.move(game.at(5,5))
+		                   pepita.come(alpiste)
 		                   game.removeVisual(alpiste)
 	}
 
@@ -35,6 +40,12 @@ program PepitaGame {
 	keyboard.down().onPressDo { pepita.move(pepita.position().down(1)) }
 	keyboard.left().onPressDo { pepita.move(pepita.position().left(1)) }
 	keyboard.right().onPressDo { pepita.move(pepita.position().right(1)) }
+		
+		
+// Colisiones
+  //  game.whenCollideDo(pepita, {ave => console.printIn(pepita , "Hola") })	
+      game.whenCollideDo(pepona , {golondrina => golondrina.nuevaAmiga(pepona) })	
+      game.whenCollideDo(pipa , {golondrina => golondrina.nuevaAmiga(pipa)})
 		
 //	START
 	game.start()
