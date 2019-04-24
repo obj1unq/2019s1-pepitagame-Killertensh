@@ -60,19 +60,27 @@ object pipa {
 
 object roque{
 	var property position = game.at(1,1)
-	var  comidaActual = alpiste
+	var   comidaActual = null
 	method image() = "jugador.png"
+	
 	method move(nuevaPosicion){
 		self.position(nuevaPosicion)
 	}
 	
 	method guardarComida(comida){
 		if (comida != comidaActual){
-		
+			
+			comidaActual = comida
 			game.removeVisual(comida)
-			game.addVisualIn(comida,game.at(1.randomUpTo(10).truncate(0) ,1.randomUpTo(10).truncate(0) ) )
-            comidaActual = comida
+			self.soltarComida(comidaActual)	
+		      
 		}
-		
 	}
-}
+	
+	method soltarComida(comida){
+		game.addVisualIn(comida, game.at(1.randomUpTo(5).truncate(0) , 1.randomUpTo(5).truncate(0)))
+		game.whenCollideDo(comida , {roque => roque.guardarComida(comida)})
+	}
+	
+}	
+	

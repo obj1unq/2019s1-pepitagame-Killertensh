@@ -48,6 +48,7 @@ program PepitaGame {
   //  game.whenCollideDo(pipa , {golondrina => golondrina.nuevaAmiga(pipa)})
 	  game.whenCollideDo(alpiste , {roque => roque.guardarComida(alpiste)})	 
 	  game.whenCollideDo(manzana , {roque => roque.guardarComida(manzana)})
+	//  game.whenCollideDo(pepita, {roque => roque.darComidaAPepita()})
 //	START
 	game.start()
 }
