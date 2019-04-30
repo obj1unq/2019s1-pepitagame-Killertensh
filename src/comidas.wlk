@@ -8,6 +8,10 @@ object manzana {
 	method agregarEnLugarRandom(){
 		game.addVisualIn(self, game.at(1.randomUpTo(10).truncate(0) ,1.randomUpTo(10).truncate(0) ) )
 	}
+	
+	method colisionaCon(persona){
+		persona.guardarComida(self)
+	}
 }
 
 object alpiste {
@@ -17,6 +21,10 @@ object alpiste {
 	
 	method agregarEnLugarRandom(){
 		game.addVisualIn(self, game.at(1.randomUpTo(10).truncate(0) ,1.randomUpTo(10).truncate(0) ) )
+	}
+	
+	method colisionaCon(persona){
+		persona.guardarComida(self)
 	}
 }
 

@@ -46,8 +46,8 @@ program PepitaGame {
   //  game.whenCollideDo(pepita, {ave => console.printIn(pepita , "Hola") })	
   //  game.whenCollideDo(pepona , {golondrina => golondrina.nuevaAmiga(pepona) })	
   //  game.whenCollideDo(pipa , {golondrina => golondrina.nuevaAmiga(pipa)})
-	  game.whenCollideDo(alpiste , {roque => roque.guardarComida(alpiste)})	 
-	  game.whenCollideDo(manzana , {roque => roque.guardarComida(manzana)})
+	  game.whenCollideDo(roque , {cosa => cosa.colisionaCon(roque)})	 
+	  
 	//  game.whenCollideDo(pepita, {roque => roque.darComidaAPepita()})
 //	START
 	game.start()

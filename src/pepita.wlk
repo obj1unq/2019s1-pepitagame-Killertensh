@@ -28,10 +28,14 @@ object pepita {
 
 	method energiaParaVolar(distancia) = 15 + 5 * distancia
 
+
+
 	method move(nuevaPosicion) {
 		energia -= self.energiaParaVolar(position.distance(nuevaPosicion))
 		self.position(nuevaPosicion)
 	}
+
+
 
     method nuevaAmiga(ave){
     	if(ave.nombre() != amiga)
@@ -61,26 +65,32 @@ object pipa {
 object roque{
 	var property position = game.at(1,1)
 	var   comidaActual = null
+	
+	
 	method image() = "jugador.png"
 	
 	method move(nuevaPosicion){
 		self.position(nuevaPosicion)
 	}
 	
-	method guardarComida(comida){
-		if (comida != comidaActual){
-			
+	
+	method comidaNueva(comida){
+		if (comidaActual != comida){
+			game.addVisualIn(comidaActual, game.at(1.randomUpTo(8).truncate(0),1.randomUpTo(8).truncate(0)))
 			comidaActual = comida
 			game.removeVisual(comida)
-			self.soltarComida(comidaActual)	
-		      
 		}
 	}
 	
-	method soltarComida(comida){
-		game.addVisualIn(comida, game.at(1.randomUpTo(5).truncate(0) , 1.randomUpTo(5).truncate(0)))
-		game.whenCollideDo(comida , {roque => roque.guardarComida(comida)})
+	method guardarComida(comida){
+		if (comidaActual == null){
+			
+			comidaActual = comida
+			game.removeVisual(comida)		      
+		}
+		else self.comidaNueva(comida)
 	}
 	
+
 }	
 	
