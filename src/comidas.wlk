@@ -1,6 +1,7 @@
 import wollok.game.*
+import pepita.*
 
-object manzana {
+class Manzana {
 	method image() = "manzana.png"
 	
 	method energia() = 80
@@ -12,9 +13,20 @@ object manzana {
 	method colisionaCon(persona){
 		persona.guardarComida(self)
 	}
+	
+	method pepitaTeCome(){
+		pepita.come(self)
+		game.removeVisual(self)
+		
+	}
+	
+	method alimentarAPepita(){
+		self.pepitaTeCome()
+	}
+	
 }
 
-object alpiste {
+class Alpiste {
 	method image() = "alpiste.png"
 	
 	method energia() = 5
@@ -25,6 +37,16 @@ object alpiste {
 	
 	method colisionaCon(persona){
 		persona.guardarComida(self)
+	}
+	
+	method alimentarAPepita(){
+		self.pepitaTeCome()
+	}
+	
+	method pepitaTeCome(){
+		pepita.come(self)
+		game.removeVisual(self)
+		
 	}
 }
 

@@ -7,6 +7,8 @@ object pepita {
 	var property ciudad = buenosAires 
     var property amiga = self.nombre()
 	var property position = game.at(3,3)
+	method serDadaA(ave){}
+	method colisionaCon(persona){}	
 	
 	
 	method image() = if (self.energia() <= 100) "pepita.png"
@@ -52,6 +54,10 @@ object pepona{
 	var property position = game.at(2,8)
 	method image() = "pepona.png"
 	method nombre() = "Pepona"
+	method colisionaCon(persona){}
+	method serDadaA(ave){}
+	method pepitaTeCome(){}
+	method alimentarAPepita(){}
 	
 }
 
@@ -60,6 +66,9 @@ object pipa {
 	var property position = game.at(2,9)
 	method image()= "pepitaCanchera.png"
 	method nombre() = "Pipa"
+	method colisionaCon(persona){}
+	method pepitaTeCome(){}
+	method alimentarAPepita(){}
 }
 
 object roque{
@@ -91,6 +100,29 @@ object roque{
 		else self.comidaNueva(comida)
 	}
 	
+	method pepitaTeCome(){}
+	
+	
+	
+	method alimentarAPepita(){
+		if(comidaActual != null){
+		  pepita.come(comidaActual)
+		  game.addVisualIn(comidaActual, game.at(1.randomUpTo(8).truncate(0),1.randomUpTo(8).truncate(0)))
+          comidaActual = null	
+        }  
+          
+		else{}
+	}
+	
+	method agregarComidaATablero(comida){
+		game.addVisualIn(comida, game.at(1.randomUpTo(8).truncate(0),1.randomUpTo(8).truncate(0)))
+	}
+	
+}
 
-}	
+
+
+
+
+
 	

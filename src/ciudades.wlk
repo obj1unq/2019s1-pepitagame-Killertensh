@@ -7,6 +7,8 @@ object villaGesell {
 	
 	method nombre() = "Villa Gesell"
 	method colisionaCon(persona){}
+	method pepitaTeCome(){}
+	method alimentarAPepita(){}
 }
 
 object buenosAires {
@@ -16,5 +18,8 @@ object buenosAires {
 	method nombre() = "Buenos Aires"
 	
 	method colisionaCon(persona){}	
+	method pepitaTeCome(){}
+	method alimentarAPepita(){}
+	
 }
 
